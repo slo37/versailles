@@ -117,11 +117,77 @@ class Slider {
 class EventsSlider extends Slider {
     constructor(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector) {
         super(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector);
-        this.centerIndex = 2; // Start with 3rd card as center (index 2)
+        // Don't use centerIndex - we'll track the actual center card
+        this.currentIndex = 0; // Start at first card
+        this.visibleCards = this.getVisibleCards();
+    }
+    
+    getVisibleCards() {
+        const width = window.innerWidth;
+        if (width < 768) return 1;
+        if (width < 992) return 3;
+        return 5; // Show 5 cards on desktop
+    }
+    
+    init() {
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.prev());
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.next());
+        }
+        
+        window.addEventListener('resize', () => {
+            this.visibleCards = this.getVisibleCards();
+            this.updateSlider();
+        });
+        
+        // Set initial state - start with 3rd card (index 2) as center
+        // This means currentIndex should be 0 so that card at index 2 is in center position
+        this.currentIndex = 0;
+        this.updateSlider();
+        this.updateButtonStates();
+    }
+    
+    prev() {
+        // Allow going back to show first card in center
+        const minIndex = -Math.floor(this.visibleCards / 2);
+        if (this.currentIndex > minIndex) {
+            this.currentIndex--;
+            this.updateSlider();
+            this.updateButtonStates();
+        }
+    }
+    
+    next() {
+        // Allow scrolling to show last card in center
+        const centerPosition = Math.floor(this.visibleCards / 2);
+        const maxIndex = this.items.length - 1 - centerPosition;
+        if (this.currentIndex < maxIndex) {
+            this.currentIndex++;
+            this.updateSlider();
+            this.updateButtonStates();
+        }
+    }
+    
+    updateButtonStates() {
+        const minIndex = -Math.floor(this.visibleCards / 2);
+        const centerPosition = Math.floor(this.visibleCards / 2);
+        const maxIndex = this.items.length - 1 - centerPosition;
+        
+        // Update button disabled states
+        if (this.prevBtn) {
+            this.prevBtn.style.opacity = this.currentIndex <= minIndex ? '0.5' : '1';
+            this.prevBtn.style.cursor = this.currentIndex <= minIndex ? 'not-allowed' : 'pointer';
+        }
+        if (this.nextBtn) {
+            this.nextBtn.style.opacity = this.currentIndex >= maxIndex ? '0.5' : '1';
+            this.nextBtn.style.cursor = this.currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+        }
     }
     
     updateSlider() {
-        // Remove all inline transform styles from cards
+        // Remove all inline styles from cards
         this.items.forEach((item, index) => {
             item.style.transform = '';
             item.style.opacity = '';
@@ -129,8 +195,9 @@ class EventsSlider extends Slider {
             item.style.boxShadow = '';
         });
         
-        // Calculate which card should be in center based on currentIndex
-        const centerCardIndex = this.currentIndex + this.centerIndex;
+        // Calculate the center position in viewport
+        const centerPosition = Math.floor(this.visibleCards / 2);
+        const centerCardIndex = this.currentIndex + centerPosition;
         
         // Apply active styles based on position relative to center
         this.items.forEach((item, index) => {
@@ -163,7 +230,7 @@ class EventsSlider extends Slider {
             }
         });
         
-        // Move the track
+        // Move the track - adjust offset to keep center card in view
         const itemWidth = this.items[0]?.offsetWidth || 0;
         const offset = -(this.currentIndex * itemWidth);
         this.track.style.transform = `translateX(${offset}px)`;
