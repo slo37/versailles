@@ -158,8 +158,18 @@ class EventsSlider extends Slider {
         // Set initial state - start with 3rd card (index 2) as center
         // This means currentIndex should be 0 so that card at index 2 is in center position
         this.currentIndex = 0;
-        this.updateSlider();
-        this.updateButtonStates();
+        
+        // Apply initial styles immediately
+        setTimeout(() => {
+            this.updateSlider();
+            this.updateButtonStates();
+        }, 100);
+        
+        // Also apply on window load to ensure everything is ready
+        window.addEventListener('load', () => {
+            this.updateSlider();
+            this.updateButtonStates();
+        });
         
         // Log initial center card for debugging
         const centerPos = Math.floor(this.visibleCards / 2);
