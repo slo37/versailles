@@ -57,7 +57,7 @@ class Slider {
         this.track = this.container.querySelector(trackSelector);
         this.prevBtn = this.container.querySelector(prevBtnSelector);
         this.nextBtn = this.container.querySelector(nextBtnSelector);
-        this.items = this.track.querySelectorAll('.slider-item, .event-card, .memory-card, .memory-item, .partner-logo');
+        this.items = this.track.querySelectorAll('.slider-item, .event-card, .memory-card, .memory-item, .partner-logo, .testimonial-item');
         
         this.currentIndex = 0;
         this.itemsToShow = this.getItemsToShow();
@@ -67,6 +67,10 @@ class Slider {
     
     getItemsToShow() {
         const width = window.innerWidth;
+        // Testimonials always show 1 item at a time
+        if (this.items[0]?.classList.contains('testimonial-item')) {
+            return 1;
+        }
         if (width < 768) return 1;
         if (width < 992) return 2;
         // Memory items and partner logos show 3 per view on desktop
@@ -109,8 +113,10 @@ class Slider {
     
     updateSlider() {
         const itemWidth = this.items[0]?.offsetWidth || 0;
-        // Use 30px gap for memory items, 20px for others
-        const gap = this.items[0]?.classList.contains('memory-item') ? 30 : 20;
+        // Use appropriate gap based on item type
+        let gap = 20;
+        if (this.items[0]?.classList.contains('memory-item')) gap = 30;
+        if (this.items[0]?.classList.contains('testimonial-item')) gap = 40;
         const offset = -(this.currentIndex * (itemWidth + gap));
         this.track.style.transform = `translateX(${offset}px)`;
     }
@@ -255,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Partners slider
     new Slider('.partners-slider', '.partners-track', '.slider-prev', '.slider-next');
     
-    // Testimonial slider (if exists)
-    new Slider('.testimonial-slider', '.testimonial-container', '.slider-prev', '.slider-next');
+    // Testimonials slider
+    new Slider('.testimonials-slider-wrapper', '.testimonials-slider-track', '.testimonials-prev', '.testimonials-next');
 });
 
 // ===================================
