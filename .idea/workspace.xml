@@ -80,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1763650968309</updated>
       <workItem from="1763650970339" duration="730000" />
-      <workItem from="1763651710717" duration="245000" />
+      <workItem from="1763651710717" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="Update About section styling and replace image in index.html">
       <option name="closed" value="true" />
@@ -106,15 +106,26 @@
       <option name="project" value="LOCAL" />
       <updated>1763651770375</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update About section styling and replace image in index.html">
+      <option name="closed" value="true" />
+      <created>1763651973129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763651973129</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Update About section styling and replace image in index.html" />
     <option name="LAST_COMMIT_MESSAGE" value="Update About section styling and replace image in index.html" />
+    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
