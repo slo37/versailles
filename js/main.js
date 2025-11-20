@@ -57,7 +57,7 @@ class Slider {
         this.track = this.container.querySelector(trackSelector);
         this.prevBtn = this.container.querySelector(prevBtnSelector);
         this.nextBtn = this.container.querySelector(nextBtnSelector);
-        this.items = this.track.querySelectorAll('.slider-item, .event-card, .memory-card, .partner-logo');
+        this.items = this.track.querySelectorAll('.slider-item, .event-card, .memory-card, .memory-item, .partner-logo');
         
         this.currentIndex = 0;
         this.itemsToShow = this.getItemsToShow();
@@ -69,7 +69,11 @@ class Slider {
         const width = window.innerWidth;
         if (width < 768) return 1;
         if (width < 992) return 2;
-        return this.items[0]?.classList.contains('partner-logo') ? 3 : 4;
+        // Memory items and partner logos show 3 per view on desktop
+        if (this.items[0]?.classList.contains('memory-item') || this.items[0]?.classList.contains('partner-logo')) {
+            return 3;
+        }
+        return 4;
     }
     
     init() {
@@ -105,7 +109,8 @@ class Slider {
     
     updateSlider() {
         const itemWidth = this.items[0]?.offsetWidth || 0;
-        const gap = 20;
+        // Use 30px gap for memory items, 20px for others
+        const gap = this.items[0]?.classList.contains('memory-item') ? 30 : 20;
         const offset = -(this.currentIndex * (itemWidth + gap));
         this.track.style.transform = `translateX(${offset}px)`;
     }
@@ -245,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
     new EventsSlider('.events-slider', '.events-track', '.slider-prev', '.slider-next');
     
     // Memories slider
-    new Slider('.memories-slider', '.memories-track', '.slider-prev', '.slider-next');
+    new Slider('.memories-slider-wrapper', '.memories-slider-track', '.memories-prev', '.memories-next');
     
     // Partners slider
     new Slider('.partners-slider', '.partners-track', '.slider-prev', '.slider-next');
