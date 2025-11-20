@@ -402,25 +402,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===================================
-// 8. ACTIVE NAV LINK ON SCROLL
+// 8. SET ACTIVE NAV LINK BASED ON CURRENT PAGE
 // ===================================
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section[id]');
+document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        const linkHref = link.getAttribute('href');
+        
+        // Check if link matches current page
+        if (linkHref === currentPage || 
+            (currentPage === '' && linkHref === 'index.html') ||
+            (currentPage === '/' && linkHref === 'index.html')) {
             link.classList.add('active');
         }
     });
