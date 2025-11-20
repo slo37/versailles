@@ -50,9 +50,42 @@ img {
     z-index: 1000;
 }
 
+.navbar .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.navbar-brand {
+    order: 1;
+}
+
 .navbar-brand .logo {
     height: 60px;
     width: auto;
+}
+
+/* Desktop: Menu in center, social icons on right */
+.navbar-collapse {
+    order: 2;
+    flex: 1;
+}
+
+.social-icons {
+    order: 3;
+    margin-left: auto;
+}
+
+.navbar-toggler {
+    order: 2;
+    display: none;
+}
+
+/* Show toggler only on mobile */
+@media (max-width: 991px) {
+    .navbar-toggler {
+        display: block;
+    }
 }
 
 .navbar-nav .nav-link {

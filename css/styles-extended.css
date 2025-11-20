@@ -1400,19 +1400,56 @@ textarea.form-control {
     color: var(--white-color);
 }
 
+/* Contact Page Social Icons - Square/Rounded Style */
+.social-icons-footer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icon-footer {
+    width: 50px;
+    height: 50px;
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon-footer:hover {
+    background-color: var(--gold-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
 /* Responsive Design */
 @media (max-width: 991px) {
-    /* Navigation */
-    .navbar-actions {
-        margin-top: 20px;
-        width: 100%;
-        justify-content: center;
-        flex-direction: column;
-        gap: 15px;
+    /* Navigation - Mobile layout */
+    .navbar-collapse {
+        order: 4;
+        flex-basis: 100%;
+        flex: none;
+    }
+    
+    .navbar-toggler {
+        order: 3;
+        margin-left: auto;
     }
     
     .social-icons {
+        order: 2;
         margin-left: 0 !important;
+        margin-right: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     /* Hero Section */
@@ -1665,6 +1702,20 @@ textarea.form-control {
         padding-right: 15px;
     }
     
+    /* Navigation - Keep centered */
+    .social-icons {
+        gap: 8px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+    
     .section-title {
         font-size: 28px;
         text-align: center;
@@ -1914,29 +1965,34 @@ textarea.form-control {
         padding-right: 10px;
     }
     
-    /* Navigation */
+    /* Navigation - Keep centered */
     .navbar-brand .logo {
         height: 50px;
     }
     
-    .navbar-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .btn-login {
-        padding: 6px 20px;
-        font-size: 13px;
-    }
-    
     .social-icons {
-        gap: 8px;
+        gap: 6px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .social-icon {
         width: 28px;
         height: 28px;
         font-size: 12px;
+    }
+    
+    /* Contact Page Social Icons - Responsive */
+    .social-icons-footer {
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .social-icon-footer {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
     }
     
     /* Hero Section */
