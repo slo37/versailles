@@ -117,16 +117,18 @@ class Slider {
 class EventsSlider extends Slider {
     constructor(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector) {
         super(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector);
-        // Don't use centerIndex - we'll track the actual center card
-        this.currentIndex = 0; // Start at first card
         this.visibleCards = this.getVisibleCards();
+        // Start with center card (3rd card, index 2) as active
+        // currentIndex = 0 means the track starts at position 0, and with 5 visible cards,
+        // the card at index 2 will be in the center position
+        this.currentIndex = 0;
     }
     
     getVisibleCards() {
         const width = window.innerWidth;
-        if (width < 768) return 1;
-        if (width < 992) return 3;
-        return 5; // Show 5 cards on desktop
+        if (width < 768) return 1;  // Mobile: 1 card visible, center = index 0
+        if (width < 992) return 3;  // Tablet: 3 cards visible, center = index 1
+        return 5; // Desktop: 5 cards visible, center = index 2 (3rd card)
     }
     
     init() {
@@ -147,6 +149,11 @@ class EventsSlider extends Slider {
         this.currentIndex = 0;
         this.updateSlider();
         this.updateButtonStates();
+        
+        // Log initial center card for debugging
+        const centerPos = Math.floor(this.visibleCards / 2);
+        const centerCard = this.currentIndex + centerPos;
+        console.log(`Events Slider: Center card is at index ${centerCard} (card ${centerCard + 1})`);
     }
     
     prev() {
@@ -181,20 +188,12 @@ class EventsSlider extends Slider {
             this.prevBtn.style.cursor = this.currentIndex <= minIndex ? 'not-allowed' : 'pointer';
         }
         if (this.nextBtn) {
-            this.nextBtn.style.opacity = this.currentIndex >= maxIndex ? '0.5' : '1';
-            this.nextBtn.style.cursor = this.currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+            this.nextBtn.style.setProperty('opacity', this.currentIndex >= maxIndex ? '0.5' : '1', 'important');
+            this.nextBtn.style.setProperty('cursor', this.currentIndex >= maxIndex ? 'not-allowed' : 'pointer', 'important');
         }
     }
     
     updateSlider() {
-        // Remove all inline styles from cards
-        this.items.forEach((item, index) => {
-            item.style.transform = '';
-            item.style.opacity = '';
-            item.style.zIndex = '';
-            item.style.boxShadow = '';
-        });
-        
         // Calculate the center position in viewport
         const centerPosition = Math.floor(this.visibleCards / 2);
         const centerCardIndex = this.currentIndex + centerPosition;
@@ -205,28 +204,28 @@ class EventsSlider extends Slider {
             
             if (distanceFromCenter === 0) {
                 // Center card
-                item.style.transform = 'scale(1.05)';
-                item.style.opacity = '1';
-                item.style.zIndex = '3';
-                item.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+                item.style.setProperty('transform', 'scale(1.05)', 'important');
+                item.style.setProperty('opacity', '1', 'important');
+                item.style.setProperty('z-index', '3', 'important');
+                item.style.setProperty('box-shadow', '0 20px 60px rgba(0, 0, 0, 0.3)', 'important');
             } else if (distanceFromCenter === 1) {
                 // Adjacent cards
-                item.style.transform = 'scale(0.9)';
-                item.style.opacity = '0.8';
-                item.style.zIndex = '2';
-                item.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.2)';
+                item.style.setProperty('transform', 'scale(0.9)', 'important');
+                item.style.setProperty('opacity', '0.8', 'important');
+                item.style.setProperty('z-index', '2', 'important');
+                item.style.setProperty('box-shadow', '0 10px 40px rgba(0, 0, 0, 0.2)', 'important');
             } else if (distanceFromCenter === 2) {
                 // Outer cards
-                item.style.transform = 'scale(0.8)';
-                item.style.opacity = '0.6';
-                item.style.zIndex = '1';
-                item.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.2)';
+                item.style.setProperty('transform', 'scale(0.8)', 'important');
+                item.style.setProperty('opacity', '0.6', 'important');
+                item.style.setProperty('z-index', '1', 'important');
+                item.style.setProperty('box-shadow', '0 10px 40px rgba(0, 0, 0, 0.2)', 'important');
             } else {
                 // Far cards
-                item.style.transform = 'scale(0.75)';
-                item.style.opacity = '0.4';
-                item.style.zIndex = '0';
-                item.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.15)';
+                item.style.setProperty('transform', 'scale(0.75)', 'important');
+                item.style.setProperty('opacity', '0.4', 'important');
+                item.style.setProperty('z-index', '0', 'important');
+                item.style.setProperty('box-shadow', '0 5px 20px rgba(0, 0, 0, 0.15)', 'important');
             }
         });
         

@@ -423,6 +423,26 @@
     position: relative;
     margin: 0 -15px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Initial state before JS loads - all cards small */
+    transform: scale(0.8);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* Default center card (3rd card) is active before JS loads */
+.events-track .event-card:nth-child(3) {
+    transform: scale(1.05);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjacent cards to center */
+.events-track .event-card:nth-child(2),
+.events-track .event-card:nth-child(4) {
+    transform: scale(0.9);
+    opacity: 0.8;
+    z-index: 2;
 }
 
 .events-track .event-card:first-child {
@@ -431,13 +451,6 @@
 
 .events-track .event-card:last-child {
     margin-right: 0;
-}
-
-/* Default state - will be overridden by JS */
-.events-track .event-card {
-    transform: scale(0.8);
-    opacity: 0.6;
-    z-index: 1;
 }
 
 .events-track .event-card:hover {
