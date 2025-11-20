@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Comment out &quot;Log in&quot; button in multiple HTML pages and introduce responsive styling improvements across various sections.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles-extended.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles-extended.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evenements.html" beforeDir="false" afterPath="$PROJECT_DIR$/evenements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galeries.html" beforeDir="false" afterPath="$PROJECT_DIR$/galeries.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/services.html" afterDir="false" />
-    </list>
+    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +77,7 @@
       <updated>1763650968309</updated>
       <workItem from="1763650970339" duration="730000" />
       <workItem from="1763651710717" duration="610000" />
-      <workItem from="1763672043446" duration="3443000" />
+      <workItem from="1763672043446" duration="3751000" />
     </task>
     <task id="LOCAL-00001" summary="Update About section styling and replace image in index.html">
       <option name="closed" value="true" />
@@ -210,7 +199,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763673229723</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Move social icons to the navbar across all HTML pages and adjust responsive styling.">
+      <option name="closed" value="true" />
+      <created>1763675549249</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1763675549249</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Move social icons to the navbar across all HTML pages and adjust responsive styling.">
+      <option name="closed" value="true" />
+      <created>1763675751424</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1763675751424</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +226,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Update About section styling and replace image in index.html" />
     <MESSAGE value="Comment out &quot;Log in&quot; button in multiple HTML pages and introduce responsive styling improvements across various sections." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comment out &quot;Log in&quot; button in multiple HTML pages and introduce responsive styling improvements across various sections." />
+    <MESSAGE value="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="github-copilot-workspace">
