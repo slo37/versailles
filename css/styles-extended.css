@@ -136,6 +136,7 @@
     font-size: 50px;
     color: var(--gold-color);
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .service-title {
@@ -144,6 +145,7 @@
     color: var(--primary-color);
     margin-bottom: 20px;
     min-height: 60px;
+    text-align: center;
 }
 
 .service-list {
