@@ -111,13 +111,72 @@ class Slider {
     }
 }
 
+// ===================================
+// EVENTS SLIDER WITH ACTIVE CARD
+// ===================================
+class EventsSlider extends Slider {
+    constructor(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector) {
+        super(containerSelector, trackSelector, prevBtnSelector, nextBtnSelector);
+        this.centerIndex = 2; // Start with 3rd card as center (index 2)
+    }
+    
+    updateSlider() {
+        // Remove all inline transform styles from cards
+        this.items.forEach((item, index) => {
+            item.style.transform = '';
+            item.style.opacity = '';
+            item.style.zIndex = '';
+            item.style.boxShadow = '';
+        });
+        
+        // Calculate which card should be in center based on currentIndex
+        const centerCardIndex = this.currentIndex + this.centerIndex;
+        
+        // Apply active styles based on position relative to center
+        this.items.forEach((item, index) => {
+            const distanceFromCenter = Math.abs(index - centerCardIndex);
+            
+            if (distanceFromCenter === 0) {
+                // Center card
+                item.style.transform = 'scale(1.05)';
+                item.style.opacity = '1';
+                item.style.zIndex = '3';
+                item.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+            } else if (distanceFromCenter === 1) {
+                // Adjacent cards
+                item.style.transform = 'scale(0.9)';
+                item.style.opacity = '0.8';
+                item.style.zIndex = '2';
+                item.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.2)';
+            } else if (distanceFromCenter === 2) {
+                // Outer cards
+                item.style.transform = 'scale(0.8)';
+                item.style.opacity = '0.6';
+                item.style.zIndex = '1';
+                item.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.2)';
+            } else {
+                // Far cards
+                item.style.transform = 'scale(0.75)';
+                item.style.opacity = '0.4';
+                item.style.zIndex = '0';
+                item.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.15)';
+            }
+        });
+        
+        // Move the track
+        const itemWidth = this.items[0]?.offsetWidth || 0;
+        const offset = -(this.currentIndex * itemWidth);
+        this.track.style.transform = `translateX(${offset}px)`;
+    }
+}
+
 // Initialize all sliders
 document.addEventListener('DOMContentLoaded', function() {
     // Photo slider
     new Slider('.photo-slider', '.slider-track', '.slider-prev', '.slider-next');
     
-    // Events slider
-    new Slider('.events-slider', '.events-track', '.slider-prev', '.slider-next');
+    // Events slider with special active card handling
+    new EventsSlider('.events-slider', '.events-track', '.slider-prev', '.slider-next');
     
     // Memories slider
     new Slider('.memories-slider', '.memories-track', '.slider-prev', '.slider-next');
