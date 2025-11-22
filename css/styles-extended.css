@@ -1102,17 +1102,32 @@ textarea.form-control {
     padding: 40px;
 }
 
-.map-info h4 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.map-info-intro {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 40px;
 }
 
-.map-info p {
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.8;
+.map-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.map-info-item i {
+    font-size: 18px;
+    color: #333;
+    margin-right: 15px;
+    margin-top: 3px;
+    min-width: 20px;
+}
+
+.map-info-item span {
+    line-height: 1.6;
 }
 
 /* FAQ Page */
