@@ -2817,23 +2817,6 @@ textarea.form-control {
     position: relative;
 }
 
-.video-slider-dot::before {
-    content: attr(data-slide);
-    counter-increment: slide-counter;
-}
-
-.video-slider-dot:nth-child(1)::before {
-    content: '1';
-}
-
-.video-slider-dot:nth-child(2)::before {
-    content: '2';
-}
-
-.video-slider-dot:nth-child(3)::before {
-    content: '3';
-}
-
 .video-slider-dot:hover {
     transform: scale(1.1);
     background: #f8f9fa;
