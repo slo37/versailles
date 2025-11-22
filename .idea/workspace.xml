@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
+    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Move social icons to the navbar across all HTML pages and adjust responsive styling.">
+      <change afterPath="$PROJECT_DIR$/assets/images/about-xl.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles-extended.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles-extended.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +82,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
       </set>
     </attachedChunks>
   </component>
@@ -78,6 +96,7 @@
       <workItem from="1763650970339" duration="730000" />
       <workItem from="1763651710717" duration="610000" />
       <workItem from="1763672043446" duration="3751000" />
+      <workItem from="1763849559868" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="Update About section styling and replace image in index.html">
       <option name="closed" value="true" />

@@ -273,7 +273,72 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Testimonials slider
     new Slider('.testimonials-slider-wrapper', '.testimonials-slider-track', '.testimonials-prev', '.testimonials-next');
+    
+    // About page gallery slider
+    initAboutGallerySlider();
 });
+
+// ===================================
+// ABOUT PAGE GALLERY SLIDER
+// ===================================
+function initAboutGallerySlider() {
+    const slider = document.querySelector('.about-gallery-slider');
+    if (!slider) return;
+    
+    const track = slider.querySelector('.about-gallery-track');
+    const prevBtn = slider.querySelector('.about-gallery-prev');
+    const nextBtn = slider.querySelector('.about-gallery-next');
+    const cards = track.querySelectorAll('.about-gallery-card');
+    
+    if (!track || !prevBtn || !nextBtn || cards.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    function getCardsToShow() {
+        const width = window.innerWidth;
+        if (width < 768) return 1;
+        return 2; // Show 2 cards on desktop/tablet
+    }
+    
+    function updateSlider() {
+        const cardsToShow = getCardsToShow();
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 30; // Match CSS gap
+        const offset = -(currentIndex * (cardWidth + gap));
+        track.style.transform = `translateX(${offset}px)`;
+        
+        // Update button states
+        const maxIndex = Math.max(0, cards.length - cardsToShow);
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        prevBtn.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+        nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+        nextBtn.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+    }
+    
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+    
+    nextBtn.addEventListener('click', function() {
+        const cardsToShow = getCardsToShow();
+        const maxIndex = Math.max(0, cards.length - cardsToShow);
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        updateSlider();
+    });
+    
+    // Initial update
+    updateSlider();
+}
 
 // ===================================
 // 4. FAQ ACCORDION
