@@ -279,6 +279,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Story gallery slider (galeries page)
     initStoryGallerySlider();
+    
+    // Video slider (galeries page)
+    initVideoSlider();
 });
 
 // ===================================
@@ -411,6 +414,99 @@ function initStoryGallerySlider() {
     // Initialize
     goToSlide(0);
     startAutoSlide();
+}
+
+// ===================================
+// VIDEO SLIDER (GALERIES PAGE)
+// ===================================
+function initVideoSlider() {
+    const wrapper = document.querySelector('.video-slider-wrapper');
+    if (!wrapper) return;
+    
+    const track = wrapper.querySelector('.video-slider-track');
+    const items = track.querySelectorAll('.video-item');
+    const paginationContainer = document.querySelector('.video-slider-pagination');
+    
+    if (!track || !paginationContainer || items.length === 0) return;
+    
+    let currentIndex = 0;
+    let dots = [];
+    
+    function getItemsToShow() {
+        const width = window.innerWidth;
+        if (width < 768) return 1;
+        if (width < 992) return 2;
+        return 3; // Show 3 videos on desktop
+    }
+    
+    function generatePaginationDots() {
+        const itemsToShow = getItemsToShow();
+        const totalPages = Math.ceil(items.length / itemsToShow);
+        
+        // Clear existing dots
+        paginationContainer.innerHTML = '';
+        dots = [];
+        
+        // Create new dots
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'video-slider-dot';
+            dot.setAttribute('data-slide', i);
+            dot.textContent = i + 1;
+            
+            if (i === 0) {
+                dot.classList.add('active');
+            }
+            
+            dot.addEventListener('click', function() {
+                goToPage(i);
+            });
+            
+            paginationContainer.appendChild(dot);
+            dots.push(dot);
+        }
+    }
+    
+    function goToPage(pageIndex) {
+        const itemsToShow = getItemsToShow();
+        currentIndex = pageIndex * itemsToShow;
+        const maxIndex = Math.max(0, items.length - itemsToShow);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        updateSlider();
+    }
+    
+    function updateSlider() {
+        const itemsToShow = getItemsToShow();
+        const itemWidth = items[0].offsetWidth;
+        const gap = 20;
+        const offset = -(currentIndex * (itemWidth + gap));
+        track.style.transform = `translateX(${offset}px)`;
+        
+        // Update pagination dots
+        const currentPage = Math.floor(currentIndex / itemsToShow);
+        dots.forEach((dot, index) => {
+            if (index === currentPage) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            currentIndex = 0; // Reset to first page on resize
+            generatePaginationDots();
+            updateSlider();
+        }, 250);
+    });
+    
+    // Initial setup
+    generatePaginationDots();
+    updateSlider();
 }
 
 // ===================================
