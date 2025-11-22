@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Move social icons to the navbar across all HTML pages and adjust responsive styling.">
-      <change afterPath="$PROJECT_DIR$/assets/images/about-xl.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/galerie-about-9.jpg" afterDir="false" />
+    <list default="true" id="8b886015-6cae-4c1d-9900-b5e782df1c4f" name="Changes" comment="Introduce new &quot;About&quot; page gallery section with slider functionality and responsive styling. Add related images and update styling in CSS.">
+      <change afterPath="$PROJECT_DIR$/assets/images/ff-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ff-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ff-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ff-4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/styles-extended.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles-extended.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galeries.html" beforeDir="false" afterPath="$PROJECT_DIR$/galeries.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +87,7 @@
       <workItem from="1763650970339" duration="730000" />
       <workItem from="1763651710717" duration="610000" />
       <workItem from="1763672043446" duration="3751000" />
-      <workItem from="1763849559868" duration="682000" />
+      <workItem from="1763849559868" duration="1181000" />
     </task>
     <task id="LOCAL-00001" summary="Update About section styling and replace image in index.html">
       <option name="closed" value="true" />
@@ -234,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763675751424</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Introduce new &quot;About&quot; page gallery section with slider functionality and responsive styling. Add related images and update styling in CSS.">
+      <option name="closed" value="true" />
+      <created>1763850308895</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1763850308895</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +245,8 @@
     <MESSAGE value="Update About section styling and replace image in index.html" />
     <MESSAGE value="Comment out &quot;Log in&quot; button in multiple HTML pages and introduce responsive styling improvements across various sections." />
     <MESSAGE value="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Move social icons to the navbar across all HTML pages and adjust responsive styling." />
+    <MESSAGE value="Introduce new &quot;About&quot; page gallery section with slider functionality and responsive styling. Add related images and update styling in CSS." />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduce new &quot;About&quot; page gallery section with slider functionality and responsive styling. Add related images and update styling in CSS." />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="github-copilot-workspace">

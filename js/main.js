@@ -276,6 +276,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // About page gallery slider
     initAboutGallerySlider();
+    
+    // Story gallery slider (galeries page)
+    initStoryGallerySlider();
 });
 
 // ===================================
@@ -338,6 +341,76 @@ function initAboutGallerySlider() {
     
     // Initial update
     updateSlider();
+}
+
+// ===================================
+// STORY GALLERY SLIDER (GALERIES PAGE)
+// ===================================
+function initStoryGallerySlider() {
+    const slider = document.querySelector('.story-gallery-slider');
+    if (!slider) return;
+    
+    const track = slider.querySelector('.story-gallery-track');
+    const slides = track.querySelectorAll('.story-gallery-slide');
+    const dots = document.querySelectorAll('.story-gallery-dot');
+    
+    if (!track || slides.length === 0 || dots.length === 0) return;
+    
+    let currentSlide = 0;
+    let autoSlideInterval;
+    
+    function goToSlide(slideIndex) {
+        // Ensure slideIndex is within bounds
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+        if (slideIndex >= slides.length) slideIndex = 0;
+        
+        currentSlide = slideIndex;
+        
+        // Move track
+        const offset = -(currentSlide * 100);
+        track.style.transform = `translateX(${offset}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+    
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+    
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+    }
+    
+    // Add click event to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            goToSlide(index);
+            stopAutoSlide();
+            startAutoSlide(); // Restart auto-slide after manual interaction
+        });
+    });
+    
+    // Pause auto-slide on hover
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+    
+    // Initialize
+    goToSlide(0);
+    startAutoSlide();
 }
 
 // ===================================

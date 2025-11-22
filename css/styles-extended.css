@@ -2696,3 +2696,219 @@ textarea.form-control {
         font-size: 14px;
     }
 }
+
+/* ===================================
+   STORY GALLERY SLIDER SECTION (GALERIES PAGE)
+   =================================== */
+.story-gallery-section {
+    background: #ffffff;
+    padding: 80px 0 100px;
+    position: relative;
+}
+
+.story-gallery-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 50px;
+    line-height: 1.4;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.story-gallery-slider-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.story-gallery-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.story-gallery-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-gallery-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    padding: 0 20px;
+}
+
+.story-gallery-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: #ffffff;
+}
+
+.story-gallery-image {
+    flex: 1;
+    max-width: 48%;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-gallery-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-gallery-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Pagination Dots */
+.story-gallery-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.story-gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.story-gallery-dot:hover {
+    background: #9ca3af;
+    transform: scale(1.2);
+}
+
+.story-gallery-dot.active {
+    background: #1a1a1a;
+    width: 14px;
+    height: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .story-gallery-images {
+        padding: 25px;
+    }
+    
+    .story-gallery-image img {
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .story-gallery-section {
+        padding: 60px 0 80px;
+    }
+    
+    .story-gallery-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    
+    .story-gallery-images {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .story-gallery-image img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-gallery-section {
+        padding: 50px 0 70px;
+    }
+    
+    .story-gallery-title {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+    
+    .story-gallery-slide {
+        padding: 0 10px;
+    }
+    
+    .story-gallery-images {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        border-width: 3px;
+    }
+    
+    .story-gallery-image {
+        max-width: 100%;
+    }
+    
+    .story-gallery-image img {
+        height: 350px;
+    }
+    
+    .story-gallery-pagination {
+        gap: 10px;
+        margin-top: 30px;
+    }
+    
+    .story-gallery-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .story-gallery-dot.active {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-gallery-section {
+        padding: 40px 0 60px;
+    }
+    
+    .story-gallery-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+    
+    .story-gallery-images {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .story-gallery-image img {
+        height: 280px;
+    }
+    
+    .story-gallery-pagination {
+        gap: 8px;
+        margin-top: 25px;
+    }
+    
+    .story-gallery-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .story-gallery-dot.active {
+        width: 10px;
+        height: 10px;
+    }
+}
