@@ -2698,6 +2698,14 @@ textarea.form-control {
 }
 
 /* ===================================
+   SERVICES PAGE ENHANCED SECTION
+   =================================== */
+.services-section-enhanced {
+    background: linear-gradient(to bottom, #000000 50%, #ffffff 50%);
+    position: relative;
+}
+
+/* ===================================
    VIDEO SLIDER SECTION (GALERIES PAGE)
    =================================== */
 .video-section {
